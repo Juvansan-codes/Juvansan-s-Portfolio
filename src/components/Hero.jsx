@@ -39,7 +39,7 @@ export const Hero = () => {
                             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                         </a>
                         <a
-                            href="/resume.pdf"
+                            href="resume.pdf"
                             download="Juvansan_Resume.pdf"
                             className="border border-slate-700 hover:border-blue-500 text-slate-300 hover:text-blue-400 px-8 py-3 rounded-full font-medium transition-all flex items-center gap-2"
                         >
