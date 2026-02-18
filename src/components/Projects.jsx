@@ -7,15 +7,13 @@ export const Projects = () => {
             title: "CodeZone — Competitive Coding Battle Platform",
             description: "Conceptualized and worked on a competitive coding battle platform where users compete by solving programming challenges in real time. Focused on user interaction flow, problem-solving logic, and competitive experience design. Strengthened understanding of coding workflows and structured problem evaluation.",
             techStack: ["Python", "SQL", "JavaScript"],
-            githubLink: "#",
-            liveLink: "#",
+            githubLink: "https://github.com/abishekjoseph9b-star/CODEZONE",
         },
         {
             title: "Inventory Management System for Manufacturing Units",
             description: "C Inventory Management System (IMS) for a manufacturing unit. Tracks raw materials and finished goods, handles stock monitoring, purchasing, and sales. Built using C structures, functions, and file handling for persistent data storage.",
             techStack: ["C", "File Handling", "Data Structures"],
             githubLink: "https://github.com/Juvansan-codes/Inventory-Management-System-for-Manufacturing-Units",
-            liveLink: "#",
         },
     ];
 
@@ -70,15 +68,7 @@ export const Projects = () => {
                                     <Github size={18} />
                                     Code
                                 </a>
-                                <a
-                                    href={project.liveLink}
-                                    className="flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <ExternalLink size={18} />
-                                    Live Demo
-                                </a>
+
                             </div>
                         </motion.div>
                     ))}
