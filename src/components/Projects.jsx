@@ -1,79 +1,80 @@
-import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
+import { motion as Motion } from "framer-motion";
+import { Github, ArrowUpRight } from "lucide-react";
+
+const projects = [
+  {
+    title: "CodeZone — Coding Battle Platform",
+    description:
+      "A concept-first platform for competitive coding duels focused on challenge flow, score logic, and real-time competitive experience.",
+    techStack: ["Python", "SQL", "JavaScript"],
+    githubLink: "https://github.com/abishekjoseph9b-star/CODEZONE",
+  },
+  {
+    title: "Inventory Management System",
+    description:
+      "A C-based inventory system for manufacturing units with stock tracking, purchasing records, sales management, and file-based persistence.",
+    techStack: ["C", "Data Structures", "File Handling"],
+    githubLink: "https://github.com/Juvansan-codes/Inventory-Management-System-for-Manufacturing-Units",
+  },
+];
 
 export const Projects = () => {
-    const projects = [
-        {
-            title: "CodeZone — Competitive Coding Battle Platform",
-            description: "Conceptualized and worked on a competitive coding battle platform where users compete by solving programming challenges in real time. Focused on user interaction flow, problem-solving logic, and competitive experience design. Strengthened understanding of coding workflows and structured problem evaluation.",
-            techStack: ["Python", "SQL", "JavaScript"],
-            githubLink: "https://github.com/abishekjoseph9b-star/CODEZONE",
-        },
-        {
-            title: "Inventory Management System for Manufacturing Units",
-            description: "C Inventory Management System (IMS) for a manufacturing unit. Tracks raw materials and finished goods, handles stock monitoring, purchasing, and sales. Built using C structures, functions, and file handling for persistent data storage.",
-            techStack: ["C", "File Handling", "Data Structures"],
-            githubLink: "https://github.com/Juvansan-codes/Inventory-Management-System-for-Manufacturing-Units",
-        },
-    ];
+  return (
+    <section id="projects" className="py-20">
+      <Motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}
+        className="mb-12"
+      >
+        <p className="section-subtitle">Projects</p>
+        <h2 className="section-title">Selected work that reflects my build style.</h2>
+      </Motion.div>
 
-    return (
-        <section id="projects" className="py-20 px-6 bg-slate-900/50">
-            <div className="max-w-5xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+      <div className="grid gap-6 md:grid-cols-2">
+        {projects.map((project, index) => (
+          <Motion.article
+            key={project.title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            className="glass group relative overflow-hidden rounded-3xl p-7"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/0 via-cyan-400/0 to-cyan-400/10 opacity-0 transition group-hover:opacity-100" />
+            <h3 className="relative text-xl font-semibold text-white">{project.title}</h3>
+            <p className="relative mt-4 text-sm leading-relaxed text-slate-300">{project.description}</p>
+
+            <div className="relative mt-5 flex flex-wrap gap-2">
+              {project.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-slate-200"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Featured Projects</h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
-                </motion.div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="glass rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full"
-                        >
-                            <div className="p-6 flex-grow">
-                                <h3 className="text-xl font-bold mb-3 text-white">{project.title}</h3>
-                                <p className="text-slate-400 mb-6 text-sm leading-relaxed">
-                                    {project.description}
-                                </p>
-                                <div className="flex flex-wrap gap-2 mb-6">
-                                    {project.techStack.map((tech) => (
-                                        <span
-                                            key={tech}
-                                            className="text-xs px-2 py-1 bg-blue-900/30 text-blue-300 rounded border border-blue-900/50"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className="p-6 pt-0 mt-auto flex gap-4">
-                                <a
-                                    href={project.githubLink}
-                                    className="flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <Github size={18} />
-                                    Code
-                                </a>
-
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+                  {tech}
+                </span>
+              ))}
             </div>
-        </section>
-    );
+
+            <div className="relative mt-7 flex items-center gap-4">
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-cyan-200 transition hover:text-cyan-100"
+              >
+                <Github size={16} />
+                Source
+              </a>
+              <span className="inline-flex items-center gap-1 text-sm text-slate-400">
+                Featured
+                <ArrowUpRight size={14} />
+              </span>
+            </div>
+          </Motion.article>
+        ))}
+      </div>
+    </section>
+  );
 };
