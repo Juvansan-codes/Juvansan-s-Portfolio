@@ -2,7 +2,7 @@
 
 A modern, responsive personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion.
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Node.js installed
@@ -25,13 +25,13 @@ A modern, responsive personal portfolio website built with React, Vite, Tailwind
     npm run dev
     ```
 
-## 🛠️ Tech Stack
+##  Tech Stack
 -   **React** (Vite)
 -   **Tailwind CSS** (Styling)
 -   **Framer Motion** (Animations)
 -   **Lucide React** (Icons)
 
-## 📦 Deployment (GitHub Pages)
+##  Deployment (GitHub Pages)
 
 To deploy this portfolio to GitHub Pages:
 
@@ -70,7 +70,7 @@ To deploy this portfolio to GitHub Pages:
     cd -
     ```
 
-## 📝 Customization
+##  Customization
 
 -   **Profile Image**: Replace the placeholder image URL in `src/components/Hero.jsx` or add a file to `src/assets/` and import it.
 -   **Projects**: Update the `projects` array in `src/components/Projects.jsx`.
