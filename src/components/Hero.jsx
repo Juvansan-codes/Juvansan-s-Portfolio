@@ -1,74 +1,99 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { motion as Motion } from "framer-motion";
+import { ArrowRight, Download, Github, Linkedin } from "lucide-react";
 import profileImg from "../assets/profile.jpg";
 
+const statCards = [
+  { label: "Projects Built", value: "10+" },
+  { label: "Hackathons", value: "4" },
+  { label: "Learning Focus", value: "Full Stack + AI" },
+];
+
 export const Hero = () => {
-    return (
-        <section
-            id="home"
-            className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden"
+  return (
+    <section id="home" className="relative flex min-h-screen items-center pt-28 pb-14">
+      <div className="grid w-full items-center gap-12 lg:grid-cols-[1.2fr_1fr]">
+        <Motion.div
+          initial={{ opacity: 0, y: 36 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75 }}
         >
-            <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+          <p className="section-subtitle">Creative Developer Portfolio</p>
+          <h1 className="mt-5 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            Building fast, elegant digital experiences that people love to use.
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            I'm Juvansan, a Computer Science student and aspiring full stack developer focused on clean
+            architecture, polished UI, and practical problem-solving.
+          </p>
 
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="order-2 md:order-1"
-                >
-                    <h2 className="text-blue-400 font-medium text-lg mb-4">
-                        Hello, I'm
-                    </h2>
-                    <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 leading-tight">
-                        Juvansan
-                        <span className="block text-slate-400 text-3xl md:text-5xl mt-2">
-                            Aspiring Full Stack Developer
-                        </span>
-                    </h1>
-                    <p className="text-slate-400 text-lg mb-8 max-w-lg">
-                        B.Tech CSE Student at Karunya University. I build user-friendly web applications that solve real-world problems.
-                        Passionate about clean code, music, and innovation.
-                    </p>
+          <div className="mt-9 flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
+            >
+              Explore Projects
+              <ArrowRight size={18} />
+            </a>
+            <a
+              href="resume.pdf"
+              download="Juvansan_Resume.pdf"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-cyan-300 hover:text-cyan-200"
+            >
+              Resume
+              <Download size={18} />
+            </a>
+          </div>
 
-                    <div className="flex flex-wrap gap-4">
-                        <a
-                            href="#projects"
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-all flex items-center gap-2 group"
-                        >
-                            View Projects
-                            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </a>
-                        <a
-                            href="resume.pdf"
-                            download="Juvansan_Resume.pdf"
-                            className="border border-slate-700 hover:border-blue-500 text-slate-300 hover:text-blue-400 px-8 py-3 rounded-full font-medium transition-all flex items-center gap-2"
-                        >
-                            Download Resume
-                            <Download size={20} />
-                        </a>
-                    </div>
-                </motion.div>
+          <div className="mt-8 flex items-center gap-3">
+            <a
+              href="https://github.com/Juvansan-codes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-white/15 bg-white/5 p-3 text-slate-200 transition hover:border-cyan-300 hover:text-cyan-200"
+              aria-label="GitHub"
+            >
+              <Github size={20} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/juvansan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-white/15 bg-white/5 p-3 text-slate-200 transition hover:border-cyan-300 hover:text-cyan-200"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} />
+            </a>
+          </div>
+        </Motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="order-1 md:order-2 flex justify-center"
-                >
-                    <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 border-2 border-blue-500/30 glass">
-                        {/* Profile Image */}
-                        <img
-                            src={profileImg}
-                            alt="Juvan Profile"
-                            className="w-full h-full rounded-full object-cover"
-                        />
+        <Motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          className="relative"
+        >
+          <div className="glass relative rounded-3xl p-6 sm:p-7">
+            <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-violet-500/30 blur-2xl" />
+            <div className="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-cyan-400/30 blur-2xl" />
 
-                        {/* Decorative circles */}
-                        <div className="absolute -z-10 w-full h-full top-0 left-0 bg-blue-600/20 blur-3xl rounded-full"></div>
-                    </div>
-                </motion.div>
-
+            <div className="mx-auto mb-6 h-52 w-52 overflow-hidden rounded-2xl border border-white/15 sm:h-64 sm:w-64">
+              <img src={profileImg} alt="Juvansan profile" className="h-full w-full object-cover" />
             </div>
-        </section>
-    );
+
+            <div className="space-y-3">
+              {statCards.map((card) => (
+                <div
+                  key={card.label}
+                  className="rounded-xl border border-white/10 bg-white/5 px-4 py-3"
+                >
+                  <p className="text-sm text-slate-300">{card.label}</p>
+                  <p className="text-sm font-semibold text-white">{card.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Motion.div>
+      </div>
+    </section>
+  );
 };

@@ -9,27 +9,37 @@ html {
 }
 
 body {
-  @apply bg-[#0f172a] text-slate-200 font-sans antialiased;
+  @apply m-0 bg-slate-950 text-slate-100 font-sans antialiased;
 }
 
-/* Glassmorphism Utilities */
+#root {
+  min-height: 100vh;
+}
+
 .glass {
-  @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+  @apply border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_12px_36px_rgba(2,6,23,0.45)];
 }
 
-.glass-hover {
-  @apply hover:bg-white/10 transition-colors duration-300;
+.section-title {
+  @apply text-3xl font-bold tracking-tight text-white md:text-4xl;
 }
 
-/* Custom Scrollbar */
+.section-subtitle {
+  @apply mt-3 text-sm uppercase tracking-[0.22em] text-cyan-300/80;
+}
+
+::selection {
+  @apply bg-cyan-400/40 text-white;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-[#0f172a];
+  @apply bg-slate-950;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-blue-600/50 rounded-full hover:bg-blue-600/80;
+  @apply rounded-full bg-slate-700 hover:bg-slate-600;
 }
