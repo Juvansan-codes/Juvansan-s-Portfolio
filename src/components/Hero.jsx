@@ -6,69 +6,99 @@ export const Hero = () => {
     return (
         <section
             id="home"
-            className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden"
+            className="px-6 py-8 md:py-12"
         >
-            <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="order-2 md:order-1"
-                >
-                    <h2 className="text-blue-400 font-medium text-lg mb-4">
-                        Hello, I'm
-                    </h2>
-                    <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 leading-tight">
-                        Juvansan
-                        <span className="block text-slate-400 text-3xl md:text-5xl mt-2">
-                            Aspiring Full Stack Developer
-                        </span>
-                    </h1>
-                    <p className="text-slate-400 text-lg mb-8 max-w-lg">
-                        B.Tech CSE Student at Karunya University. I build user-friendly web applications that solve real-world problems.
-                        Passionate about clean code, music, and innovation.
-                    </p>
-
-                    <div className="flex flex-wrap gap-4">
-                        <a
-                            href="#projects"
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-all flex items-center gap-2 group"
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="brutal-card p-8 md:p-12 lg:p-16 relative overflow-hidden"
+            >
+                <div className="grid md:grid-cols-[1fr,auto] gap-8 md:gap-12 items-center">
+                    {/* Text Content */}
+                    <div className="order-2 md:order-1">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="font-mono font-bold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight mb-6"
                         >
-                            View Projects
-                            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </a>
-                        <a
-                            href="resume.pdf"
-                            download="Juvansan_Resume.pdf"
-                            className="border border-slate-700 hover:border-blue-500 text-slate-300 hover:text-blue-400 px-8 py-3 rounded-full font-medium transition-all flex items-center gap-2"
+                            ASPIRING
+                            <br />
+                            FULL STACK
+                            <br />
+                            <span className="text-brutal-yellow" style={{ WebkitTextStroke: '1px #000' }}>
+                                DEVELOPER
+                            </span>
+                        </motion.h1>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            className="font-mono text-sm md:text-base leading-relaxed max-w-xl mb-8 opacity-80"
                         >
-                            Download Resume
-                            <Download size={20} />
-                        </a>
+                            B.Tech CSE Student at Karunya University. I build
+                            user-friendly web applications that solve real-world
+                            problems. Passionate about clean code, music, and
+                            innovation.
+                        </motion.p>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.6 }}
+                            className="flex flex-wrap gap-4"
+                        >
+                            <a
+                                href="#projects"
+                                className="brutal-btn-primary flex items-center gap-2 group"
+                            >
+                                SEE MY PROJECTS
+                                <ArrowRight
+                                    size={18}
+                                    strokeWidth={3}
+                                    className="group-hover:translate-x-1 transition-transform"
+                                />
+                            </a>
+                            <a
+                                href="resume.pdf"
+                                download="Juvansan_Resume.pdf"
+                                className="brutal-btn-secondary flex items-center gap-2"
+                            >
+                                <Download size={18} strokeWidth={3} />
+                                DOWNLOAD RESUME
+                            </a>
+                        </motion.div>
                     </div>
-                </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="order-1 md:order-2 flex justify-center"
-                >
-                    <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 border-2 border-blue-500/30 glass">
-                        {/* Profile Image */}
-                        <img
-                            src={profileImg}
-                            alt="Juvan Profile"
-                            className="w-full h-full rounded-full object-cover"
-                        />
+                    {/* Profile Image */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                        transition={{ duration: 0.7, delay: 0.3 }}
+                        className="order-1 md:order-2 flex justify-center"
+                    >
+                        <div className="relative">
+                            <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 border-3 border-brutal-black shadow-brutal overflow-hidden">
+                                <img
+                                    src={profileImg}
+                                    alt="Juvansan Profile"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            {/* Decorative stamp */}
+                            <div className="absolute -bottom-3 -right-3 bg-brutal-yellow border-3 border-brutal-black px-3 py-1 font-mono font-bold text-xs uppercase rotate-[-4deg] shadow-brutal-sm">
+                                HELLO!
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
 
-                        {/* Decorative circles */}
-                        <div className="absolute -z-10 w-full h-full top-0 left-0 bg-blue-600/20 blur-3xl rounded-full"></div>
-                    </div>
-                </motion.div>
-
-            </div>
+                {/* Decorative corner marks */}
+                <div className="absolute top-3 right-3 w-4 h-4 border-t-3 border-r-3 border-brutal-black opacity-30"></div>
+                <div className="absolute bottom-3 left-3 w-4 h-4 border-b-3 border-l-3 border-brutal-black opacity-30"></div>
+            </motion.div>
         </section>
     );
 };

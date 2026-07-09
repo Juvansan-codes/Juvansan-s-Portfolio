@@ -1,60 +1,86 @@
 import { motion } from "framer-motion";
 
 export const Skills = () => {
-    const skills = [
+    const skillGroups = [
         {
             category: "Frontend",
+            label: "FRONTEND",
+            labelColor: "brutal-label-cyan",
             items: ["HTML", "CSS", "JavaScript"],
+            highlight: "JavaScript",
         },
         {
             category: "Programming",
+            label: "PROGRAMMING",
+            labelColor: "brutal-label-green",
             items: ["Python", "C", "MATLAB", "SQL"],
+            highlight: "Python",
         },
         {
             category: "Tools",
+            label: "TOOLS & PLATFORMS",
+            labelColor: "brutal-label-purple",
             items: ["Git", "Version Control", "Linux Command Line"],
+            highlight: "Git",
         },
     ];
 
     return (
-        <section id="skills" className="py-20 px-6">
-            <div className="max-w-7xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Technical Skills</h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
-                </motion.div>
+        <section id="skills" className="px-6 py-12">
+            {/* Section Header */}
+            <motion.h2
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="brutal-section-title mb-10"
+            >
+                TECH STACK / {new Date().getFullYear()}
+            </motion.h2>
 
-                <div className="grid md:grid-cols-3 gap-8">
-                    {skills.map((skillGroup, index) => (
+            {/* Skills Container */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="brutal-card p-6 md:p-8"
+            >
+                <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+                    {skillGroups.map((group, groupIndex) => (
                         <motion.div
-                            key={skillGroup.category}
+                            key={group.category}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="glass p-8 rounded-2xl border border-slate-700 hover:border-blue-500/50 transition-colors"
+                            transition={{ duration: 0.4, delay: groupIndex * 0.1 }}
                         >
-                            <h3 className="text-2xl font-bold mb-6 text-blue-400">{skillGroup.category}</h3>
-                            <div className="flex flex-wrap gap-3">
-                                {skillGroup.items.map((skill) => (
-                                    <span
+                            {/* Category Label */}
+                            <div className="mb-4">
+                                <span className={group.labelColor}>
+                                    {group.label}
+                                </span>
+                                <div className="brutal-divider mt-2"></div>
+                            </div>
+
+                            {/* Skill Tags Grid */}
+                            <div className="grid grid-cols-2 gap-3">
+                                {group.items.map((skill) => (
+                                    <div
                                         key={skill}
-                                        className="px-4 py-2 bg-slate-800/50 rounded-lg text-slate-300 text-sm font-medium border border-slate-700 hover:border-blue-500/30 hover:text-white transition-colors"
+                                        className={`border-3 border-brutal-black px-4 py-3 font-mono font-bold uppercase text-xs tracking-wider text-center transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-sm cursor-default ${skill === group.highlight
+                                                ? "bg-brutal-yellow-light"
+                                                : "bg-brutal-white"
+                                            }`}
                                     >
                                         {skill}
-                                    </span>
+                                    </div>
                                 ))}
                             </div>
                         </motion.div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 };

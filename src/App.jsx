@@ -5,16 +5,19 @@ import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import "./App.css";
 
 function App() {
   return (
-    <div className="bg-[#0f172a] text-slate-200 min-h-screen">
+    <div className="min-h-screen">
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
+      <main className="max-w-[1440px] mx-auto">
+        <Hero />
+        <Projects />
+        <Skills />
+        <About />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

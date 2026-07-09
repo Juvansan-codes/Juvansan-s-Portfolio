@@ -1,74 +1,95 @@
 import { motion } from "framer-motion";
-import { Code, Music, GraduationCap } from "lucide-react";
+import { Code, GraduationCap, Music } from "lucide-react";
 
 export const About = () => {
     return (
-        <section id="about" className="py-20 px-6 bg-slate-900/50">
-            <div className="max-w-7xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">About Me</h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
-                </motion.div>
+        <section id="about" className="px-6 py-12">
+            {/* Section Header */}
+            <motion.h2
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="brutal-section-title mb-10"
+            >
+                THE HUMAN & CODE
+            </motion.h2>
 
-                <div className="grid md:grid-cols-3 gap-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="glass p-8 rounded-2xl hover:bg-slate-800/50 transition-colors"
-                    >
-                        <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 mb-6">
-                            <Code size={24} />
+            {/* About Container */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="brutal-card p-6 md:p-10"
+            >
+                <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+                    {/* Column 1: Developer */}
+                    <div>
+                        <div className="flex items-center gap-3 mb-4">
+                            <Code size={20} strokeWidth={3} className="text-brutal-cyan" />
+                            <span className="brutal-label-cyan">
+                                DEVELOPER
+                            </span>
                         </div>
-                        <h3 className="text-xl font-bold mb-4">Developer</h3>
-                        <p className="text-slate-400 leading-relaxed">
-                            I am a passionate aspiring Full Stack Developer with a strong foundation in Computer Science principles.
-                            I love translating ideas into functional and beautiful web applications using modern technologies.
-                        </p>
-                    </motion.div>
+                        <div className="space-y-4">
+                            <p className="font-mono text-sm leading-relaxed">
+                                I am a passionate aspiring Full Stack Developer with a strong
+                                foundation in Computer Science principles. I love translating
+                                ideas into functional and beautiful web applications using
+                                modern technologies.
+                            </p>
+                            <p className="font-mono text-sm leading-relaxed">
+                                Currently pursuing B.Tech in Computer Science and Engineering
+                                at <strong className="font-bold">Karunya University</strong>.
+                                I am actively looking for opportunities to apply my skills in
+                                real-world projects and team environments.
+                            </p>
+                        </div>
+                    </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="glass p-8 rounded-2xl hover:bg-slate-800/50 transition-colors"
-                    >
-                        <div className="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center text-purple-400 mb-6">
-                            <GraduationCap size={24} />
+                    {/* Column 2: Musician & Student */}
+                    <div>
+                        <div className="flex items-center gap-3 mb-4">
+                            <Music size={20} strokeWidth={3} className="text-brutal-green" />
+                            <span className="brutal-label-green">
+                                BEYOND THE CODE
+                            </span>
                         </div>
-                        <h3 className="text-xl font-bold mb-4">Student</h3>
-                        <p className="text-slate-400 leading-relaxed">
-                            Currently pursuing B.Tech in Computer Science and Engineering at <strong className="text-white">Karunya University</strong>.
-                            I am actively looking for opportunities to apply my skills in real-world projects and team environments.
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="glass p-8 rounded-2xl hover:bg-slate-800/50 transition-colors"
-                    >
-                        <div className="w-12 h-12 bg-rose-600/20 rounded-lg flex items-center justify-center text-rose-400 mb-6">
-                            <Music size={24} />
+                        <div className="space-y-4">
+                            <p className="font-mono text-sm leading-relaxed">
+                                Outside of coding, I am a dedicated musician. I play in the{" "}
+                                <strong className="font-bold">Zion Music Band</strong> and
+                                have performed before large audiences, which has taught me
+                                teamwork, discipline, and stage confidence.
+                            </p>
+                            <p className="font-mono text-sm leading-relaxed">
+                                I believe the best code comes from well-rounded individuals
+                                who bring diverse experiences to problem-solving — music has
+                                taught me rhythm, patience, and the art of collaboration.
+                            </p>
                         </div>
-                        <h3 className="text-xl font-bold mb-4">Musician</h3>
-                        <p className="text-slate-400 leading-relaxed">
-                            Outside of coding, I am a dedicated musician. I play in the <strong>Zion Music Band</strong> and have performed
-                            before large audiences, which has taught me teamwork, discipline, and stage confidence.
-                        </p>
-                    </motion.div>
+                    </div>
                 </div>
-            </div>
+
+                {/* Decorative bottom strip */}
+                <div className="mt-8 pt-6 border-t-3 border-brutal-black">
+                    <div className="flex flex-wrap gap-4 items-center">
+                        <span className="brutal-tag-highlight flex items-center gap-2">
+                            <GraduationCap size={14} strokeWidth={3} />
+                            B.TECH CSE
+                        </span>
+                        <span className="brutal-tag flex items-center gap-2">
+                            <Music size={14} strokeWidth={3} />
+                            MUSICIAN
+                        </span>
+                        <span className="brutal-tag flex items-center gap-2">
+                            <Code size={14} strokeWidth={3} />
+                            FULL STACK
+                        </span>
+                    </div>
+                </div>
+            </motion.div>
         </section>
     );
 };
